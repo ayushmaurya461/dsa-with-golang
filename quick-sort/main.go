@@ -21,15 +21,17 @@ func sort(arr []int, low, high int) int {
 	pivot := arr[low]
 	i := low
 	j := high
-
-	for arr[i] <= arr[pivot] && i < high {
-		i++
-	}
-	for arr[j] > arr[pivot] && j < low {
-		j--
-	}
-	if i < j {
-		arr[i], arr[j] = arr[j], arr[i]
+	for i <= j {
+		fmt.Println(1)
+		for arr[i] <= pivot && i <= high {
+			i++
+		}
+		for arr[j] > pivot && j >= low {
+			j--
+		}
+		if i < j {
+			arr[i], arr[j] = arr[j], arr[i]
+		}
 	}
 	arr[low], arr[j] = arr[j], arr[low]
 	return j

@@ -12,7 +12,7 @@ func countPrefixSuffixPairs(words []string) int {
 	for i := 0; i < len(words); i++ {
 		word := words[i]
 		for j := i + 1; j < len(words); j++ {
-			if len(word) < len(words[j]) {
+			if len(word) <= len(words[j]) {
 				match := checkPrefixSuffix(words[j], word)
 				if match {
 					count++
@@ -28,6 +28,5 @@ func checkPrefixSuffix(str, word string) bool {
 	strLength := len(str)
 	prefix := str[:n]
 	suffix := str[strLength-n : strLength]
-	fmt.Println(str, prefix, suffix, word)
 	return word == prefix && word == suffix
 }
